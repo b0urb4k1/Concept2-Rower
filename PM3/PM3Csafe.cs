@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Concept2.PM3
 {
-    internal class PM3Csafe
+    internal partial class NativeMethods
     {
         // tkcmdsetCSAFE_get_dll_version
         [DllImport(@"PM3\PM3CsafeCP.dll", CallingConvention = CallingConvention.Cdecl)]

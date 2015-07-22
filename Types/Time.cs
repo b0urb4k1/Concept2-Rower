@@ -2,43 +2,19 @@
 {
     public struct Time
     {
-        public uint Hours
-        {
-            get { return TotalSeconds / 3600;  }
-        }
+        public uint Hours => TotalSeconds / 3600;
 
-        public uint TotalMinutes
-        {
-            get { return TotalSeconds / 60; }
-        }
-        public uint Minutes
-        {
-            get { return TotalMinutes - 60 * Hours; }
-        }
+        public uint TotalMinutes => TotalSeconds / 60;
+        public uint Minutes => TotalMinutes - 60 * Hours;
 
-        public uint TotalSeconds
-        {
-            get { return TotalHundreths / 100; }
-        }
-        public uint Seconds
-        {
-            get { return TotalSeconds - 60 * TotalMinutes; }
-        }
+        public uint TotalSeconds => TotalHundreths / 100;
+        public uint Seconds => TotalSeconds - 60 * TotalMinutes;
 
-        public uint TotalTenths
-        {
-            get { return TotalHundreths / 10; }
-        }
-        public uint Tenths
-        {
-            get { return Hundreths / 10; }
-        }
+        public uint TotalTenths => TotalHundreths / 10;
+        public uint Tenths => Hundreths / 10;
 
         public uint TotalHundreths { get; set; }
-        public uint Hundreths
-        {
-            get { return TotalHundreths - 100 * TotalSeconds; }
-        }
+        public uint Hundreths => TotalHundreths - 100 * TotalSeconds;
 
         public double Double
         {
@@ -47,10 +23,7 @@
         }
 
 
-        public override string ToString()
-        {
-            return string.Format("{0}:{1:D02}:{2:D02}.{3:D02}", Hours, Minutes, Seconds, Hundreths);
-        }
+        public override string ToString() => string.Format("{0}:{1:D02}:{2:D02}.{3:D02}", Hours, Minutes, Seconds, Hundreths);
 
         public string Concise
         {

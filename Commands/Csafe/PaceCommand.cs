@@ -18,7 +18,7 @@ namespace Concept2.Commands.CSafe
             m_Pace.TotalHundreths = 50 * pace;
         }
 
-        public Time Pace { get { return m_Pace; } }
+        public Time Pace => m_Pace;
 
         private Time m_Pace;
     }

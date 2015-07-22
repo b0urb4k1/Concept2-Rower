@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Concept2.PM3
 {
-    internal class PM3DDI
+    internal partial class NativeMethods
     {
         // tkcmdsetDDI_get_dll_version
         [DllImport(@"PM3\PM3DDICP.dll", CallingConvention = CallingConvention.Cdecl)]

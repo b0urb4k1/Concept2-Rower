@@ -15,7 +15,7 @@ namespace Concept2.Commands.PM3
             m_Time.TotalHundreths = reader.ReadUInt() + reader.ReadByte();
         }
 
-        public Time WorkTime { get { return m_Time; } }
+        public Time WorkTime => m_Time;
 
         private Time m_Time;
     }

@@ -18,10 +18,10 @@ namespace Concept2.Commands
             m_Open = true;
         }
 
-        public bool CanAdd { get { return m_Open; } }
-        public bool CanSend { get { return !m_Open; } }
-        public uint[] Buffer { get { return m_CmdWriter.Buffer; } }
-        public ushort Size { get { return (ushort)m_CmdWriter.Size; } }
+        public bool CanAdd => m_Open;
+        public bool CanSend => !m_Open;
+        public uint[] Buffer => m_CmdWriter.Buffer;
+        public ushort Size => (ushort)m_CmdWriter.Size;
 
         public void Reset()
         {

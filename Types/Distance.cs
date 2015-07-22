@@ -2,16 +2,10 @@
 {
     public struct Distance
     {
-        public uint Metres
-        {
-            get { return TotalTenths / 10; }
-        }
+        public uint Metres => TotalTenths / 10;
 
         public uint TotalTenths { get; set; }
-        public uint Tenths
-        {
-            get { return TotalTenths - 10 * Metres; }
-        }
+        public uint Tenths => TotalTenths - 10 * Metres;
 
         public double Double
         {
@@ -19,9 +13,6 @@
             set { TotalTenths = (uint)(10.0 * value); }
         }
 
-        public override string ToString()
-        {
-            return string.Format("{0}.{1}", Metres, Tenths);
-        }
+        public override string ToString() => string.Format("{0}.{1}", Metres, Tenths);
     }
 }

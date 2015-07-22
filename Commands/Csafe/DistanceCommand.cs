@@ -16,7 +16,7 @@ namespace Concept2.Commands.PM3
             reader.ReadByte(); // Expecting 0x24 - Metres
         }
 
-        public Distance Distance { get { return m_Distance; } }
+        public Distance Distance => m_Distance;
 
         private Distance m_Distance;
     }

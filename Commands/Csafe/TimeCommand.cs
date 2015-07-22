@@ -18,7 +18,7 @@ namespace Concept2.Commands.CSafe
             m_Time.TotalHundreths = 100 * (3600 * hours + 60 * minutes + seconds);
         }
 
-        public Time Time { get { return m_Time; } }
+        public Time Time => m_Time;
 
         private Time m_Time;
     }

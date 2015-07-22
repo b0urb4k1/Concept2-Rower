@@ -10,8 +10,8 @@ namespace Concept2.Commands
             m_Size = 0;
         }
 
-        public int Size { get { return m_Size; } }
-        public uint[] Buffer { get { return m_Buffer; } }
+        public int Size => m_Size;
+        public uint[] Buffer => m_Buffer;
 
         public void Reset()
         {

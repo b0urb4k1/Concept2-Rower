@@ -12,10 +12,10 @@ namespace Concept2.Commands
             m_Position = 0;
         }
 
-        public ushort Capacity { get { return (ushort)m_Buffer.Length; } }
-        public int Size { get { return m_Size; } }
-        public int Position { get { return m_Position; } }
-        public uint[] Buffer { get { return m_Buffer; } }
+        public ushort Capacity => (ushort)m_Buffer.Length;
+        public int Size => m_Size;
+        public int Position => m_Position;
+        public uint[] Buffer => m_Buffer;
 
         public void Reset(int size)
         {

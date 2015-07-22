@@ -4,3 +4,9 @@ D:\Projects\Performant\Concept2\bin\Debug\Monad.dll
 D:\Projects\Performant\Concept2\obj\Debug\Concept2.dll
 D:\Projects\Performant\Concept2\obj\Debug\Concept2.pdb
 D:\Projects\Performant\Concept2\obj\Debug\Concept2.csprojResolveAssemblyReference.cache
+D:\Projects\bin\Debug\Concept2.dll
+D:\Projects\bin\Debug\Concept2.pdb
+D:\Projects\obj\Debug\Concept2.dll
+D:\Projects\obj\Debug\Concept2.pdb
+D:\Projects\bin\Debug\Concept2.dll.CodeAnalysisLog.xml
+D:\Projects\bin\Debug\Concept2.dll.lastcodeanalysissucceeded

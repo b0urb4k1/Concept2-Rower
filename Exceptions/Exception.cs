@@ -5,6 +5,7 @@ using Concept2.PM3;
 
 namespace Concept2.Exceptions
 {
+    [Serializable]
     public class PM3Exception : Exception
     {
         static PM3Exception()
@@ -45,10 +46,10 @@ namespace Concept2.Exceptions
             if (error != 0)
             {
                 var name = new StringBuilder(20);
-                PM3Csafe.tkcmdsetCSAFE_get_error_name(error, name, (ushort)(name.Capacity + 1));
+                NativeMethods.tkcmdsetCSAFE_get_error_name(error, name, (ushort)(name.Capacity + 1));
 
                 var text = new StringBuilder(400);
-                PM3Csafe.tkcmdsetCSAFE_get_error_text(error, text, (ushort)(text.Capacity + 1));
+                NativeMethods.tkcmdsetCSAFE_get_error_text(error, text, (ushort)(text.Capacity + 1));
 
                 Throw(error, name, text);
             }
@@ -59,10 +60,10 @@ namespace Concept2.Exceptions
             if (error != 0)
             {
                 var name = new StringBuilder(20);
-                PM3DDI.tkcmdsetDDI_get_error_name(error, name, (ushort)(name.Capacity + 1));
+                NativeMethods.tkcmdsetDDI_get_error_name(error, name, (ushort)(name.Capacity + 1));
 
                 var text = new StringBuilder(400);
-                PM3DDI.tkcmdsetDDI_get_error_text(error, text, (ushort)(text.Capacity + 1));
+                NativeMethods.tkcmdsetDDI_get_error_text(error, text, (ushort)(text.Capacity + 1));
 
                 Throw(error, name, text);
             }
@@ -73,10 +74,10 @@ namespace Concept2.Exceptions
             if (error != 0)
             {
                 var name = new StringBuilder(20);
-                PM3USB.tkcmdsetUSB_get_error_name(error, name, (ushort)(name.Capacity + 1));
+                NativeMethods.tkcmdsetUSB_get_error_name(error, name, (ushort)(name.Capacity + 1));
 
                 var text = new StringBuilder(400);
-                PM3USB.tkcmdsetUSB_get_error_text(error, text, (ushort)(text.Capacity + 1));
+                NativeMethods.tkcmdsetUSB_get_error_text(error, text, (ushort)(text.Capacity + 1));
 
                 Throw(error, name, text);
             }

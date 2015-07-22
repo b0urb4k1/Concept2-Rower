@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Concept2.PM3
 {
-    internal class PM3USB
+    internal partial class NativeMethods
     {
         // PM3Event
         public delegate void PM3Event(ushort a, byte b);

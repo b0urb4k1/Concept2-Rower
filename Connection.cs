@@ -15,15 +15,9 @@ namespace Concept2
             m_PM3.Start();
         }
 
-        public bool IsOpen
-        {
-            get { return (m_State == ConnectionState.Connected || m_State == ConnectionState.SendError); }
-        }
+        public bool IsOpen => (m_State == ConnectionState.Connected || m_State == ConnectionState.SendError);
 
-        public ConnectionState State
-        {
-            get { return m_State; }
-        }
+        public ConnectionState State => m_State;
 
         public bool Open()
         {

@@ -15,7 +15,7 @@ namespace Concept2.Commands.PM3
             m_Distance.TotalTenths = reader.ReadUInt() + reader.ReadByte();
         }
 
-        public Distance WorkDistance { get { return m_Distance; } }
+        public Distance WorkDistance => m_Distance;
 
         private Distance m_Distance;
     }

@@ -18,7 +18,7 @@ namespace Concept2.Commands.PM3
                 m_Data[index] = reader.ReadByte();
         }
 
-        public uint[] Data {get{ return m_Data; }}
+        public uint[] Data => m_Data;
     }
 }
 
