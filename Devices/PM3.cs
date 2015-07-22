@@ -1,0 +1,74 @@
+﻿using System.Text;
+using Concept2.Exceptions;
+using Concept2.PM3;
+
+namespace Concept2.Devices
+{
+    public class PM3
+    {
+        static public string s_ProductName = "Concept2 Performance Monitor 3 (PM3)";
+
+        public void Start()
+        {
+            ushort error;
+
+            error = PM3DDI.tkcmdsetDDI_init();
+            PM3Exception.ValidateDDI(error);
+
+            error = PM3Csafe.tkcmdsetCSAFE_init_protocol(1000);
+            PM3Exception.ValidateCsafe(error);
+        }
+
+        public void Stop()
+        {
+            var error = PM3DDI.tkcmdsetDDI_shutdown_all();
+            PM3Exception.ValidateDDI(error);
+        }
+
+        public int DiscoverUnits()
+        {
+            ushort numUnits;
+            var error = PM3DDI.tkcmdsetDDI_discover_pm3s(s_ProductName, 0, out numUnits);
+            PM3Exception.ValidateDDI(error);
+
+            return numUnits;
+        }
+
+        public UnitInfo GetUnitInfo(int port)
+        {
+            ushort error;
+
+            var hwVersion = new StringBuilder(20);
+            error = PM3DDI.tkcmdsetDDI_hw_version((ushort)port, hwVersion, (ushort)(hwVersion.Capacity + 1));
+            PM3Exception.ValidateDDI(error);
+
+            var fwVersion = new StringBuilder(20);
+            error = PM3DDI.tkcmdsetDDI_fw_version((ushort)port, fwVersion, (ushort)(fwVersion.Capacity + 1));
+            PM3Exception.ValidateDDI(error);
+
+            var serialNumber = new StringBuilder(16);
+            error = PM3DDI.tkcmdsetDDI_serial_number((ushort)port, serialNumber, (byte)(serialNumber.Capacity + 1));
+            PM3Exception.ValidateDDI(error);
+
+            var info = new UnitInfo
+                { hwVersion = hwVersion.ToString()
+                , fwVersion = fwVersion.ToString()
+                , serialNumber = serialNumber.ToString()
+                };
+            
+            return info;
+        }
+
+        public void SendCSAFECommand(ushort port, uint[] cmdData, ushort cmdDataCount, uint[] rspData, ref ushort rspDataCount)
+        {
+            var error = PM3Csafe.tkcmdsetCSAFE_command(port, cmdDataCount, cmdData, ref rspDataCount, rspData);
+            var name = new StringBuilder(20);
+            PM3Csafe.tkcmdsetCSAFE_get_error_name(error, name, (ushort)(name.Capacity + 1));
+
+            var text = new StringBuilder(400);
+            PM3Csafe.tkcmdsetCSAFE_get_error_text(error, text, (ushort)(text.Capacity + 1));
+
+            //PM3Exception.ValidateCsafe(error);
+        }
+    }
+}
